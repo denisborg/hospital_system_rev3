@@ -67,7 +67,7 @@ class Procedimento:
         df.to_csv(self.arquivo_csv, index=False)
         print(f'Procedimento cadastrado com sucesso! ID: {novo_id}')
         
-        print("\nResumo da consulta cadastrada:")
+        print("\nResumo do procedimento cadastrado:")
         print(tabulate(nova_linha, headers='keys', tablefmt='fancy_grid',showindex=False))
         
         # LINHA ADICIONADA
@@ -78,7 +78,7 @@ class Procedimento:
         if df.empty:
             print('Nenhum procedimento cadastrado.')
             return
-        print("\nLista de Consultas:")
+        print("\nLista de Procedimentos:")
         #print(tabulate(df, headers='keys', tablefmt='fancy_grid', showindex=False))
 
         df_pacientes = pd.read_csv(self.paciente_service.arquivo_csv)
@@ -91,7 +91,8 @@ class Procedimento:
         if df.empty:
             print("Nenhum procedimento para editar.")
             return
-        print("\nConsultas cadastradas:")
+        
+        print("\nProcedimentos cadastrados:")
         print(tabulate(df, headers='keys', tablefmt='fancy_grid', showindex=False))
         
         try:
@@ -126,7 +127,9 @@ class Procedimento:
             print("Nenhum procedimento para excluir.")
             return
 
-        print(df.to_string(index=False))
+        print("\nProcedimentos cadastrados:")
+        print(tabulate(df, headers='keys', tablefmt='fancy_grid', showindex=False))
+
         try:
             id_excluir = int(input("Digite o ID do procedimento que deseja excluir: "))
         except ValueError:
