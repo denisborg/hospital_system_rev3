@@ -190,7 +190,7 @@ class Paciente:
         print("Paciente atualizado com sucesso!")
         
         # LINHA ADICIONADA
-        self.logs.registrar_log("Paciente", "Edição", f"CPF: {cpf_editar}, Campo Editado: {novo_campo}")
+        self.logs.registrar_log("Paciente", "Edição", f"CPF: {cpf_editar} - Campo Editado: {novo_campo}")
 
     def buscar(self, cpf):
          df = pd.read_csv(self.arquivo_csv)
